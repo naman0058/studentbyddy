@@ -1,0 +1,12 @@
+body{
+    background: url(pink-blue-seamless-pattern-background-template_7954-24974.avif);
+  background-repeat: repeat;
+  background-position: center;
+}
+
+p{
+    background-color: rgba(0, 0, 0, 0.648);
+color: aliceblue;
+    padding: 5px;
+    margin-top: 75px;
+}

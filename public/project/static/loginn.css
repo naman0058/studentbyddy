@@ -1,0 +1,95 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+}
+.logo {
+  position: relative;
+  left: 550px;
+  top: -20px;
+}
+.login {
+  display: flex;
+  margin-top: 20px;
+  height: 500px;
+}
+.loginpic {
+  position: relative;
+  top: -10px;
+}
+
+.columns {
+  flex: 50%;
+  padding: 0px;
+}
+.column img {
+  max-width: 100%;
+  height: auto;
+}
+.program-title {
+  position: relative;
+  font-size: 50px;
+  font-weight: bold;
+  top: -30px;
+}
+#loginform {
+  position: relative;
+  top: 70px;
+}
+.form-control {
+  position: relative;
+  top: -80px;
+  border: 1px solid grey; /* Set border color */
+  border-radius: 8px; /* Set border radius for rounded edges */
+  width: 400px;
+  height: 30px;
+  padding: 10px; /* Set padding to increase box size */
+  color: grey; /* Set text color */
+  font-size: 16px; /* Set font size */
+}
+.form-control:focus {
+  outline: none; /* Remove outline on focus */
+  border-color: dodgerblue; /* Change border color on focus */
+}
+.input-group {
+  position: relative; /* Position relative for absolute positioning */
+  width: 50%; /* Set width of input group */
+}
+
+.input-group-append {
+  position: relative; /* Position absolute for positioning inside input group */
+  right: -380px; /* Align to right */
+  top: -117px; /* Align to top */
+  bottom: 0; /* Align to bottom */
+  display: flex; /* Flex container for vertical centering */
+  align-items: center; /* Center vertically */
+}
+
+.input-group-text {
+  cursor: pointer; /* Show pointer cursor */
+}
+#loginbutton {
+  position: relative;
+  top: -110px;
+  width: 200px; /* Set the desired width */
+  height: 50px;
+  background-color: rgb(101, 244, 101); /* Set the background color */
+  color: white; /* Set the font color */
+  border-radius: 10px; /* Set border radius for rounded edges */
+  border-color: rgb(101, 244, 101);
+  font-weight: bolder;
+  font-size: 20px;
+}
+#loginbutton:hover {
+  background-color: darkgreen; /* Change background color on hover */
+  border-color: darkgreen;
+  color: white; /* Maintain font color on hover */
+}
+.reg {
+  position: relative;
+  left: 670px;
+  top: -270px;
+}
+.register {
+  position: relative;
+  top: -20px;
+}

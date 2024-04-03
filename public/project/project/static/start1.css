@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  
+  }
+  body{
+    background-image: url(bg1.jpg);
+    background-size:cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  h1 {
+      color: #ffa1f4;
+      text-shadow: 1px 1px #75bcff;
+      margin-bottom: 1.5rem;
+      font-style: normal;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .btn_div {
+      display: flex;
+      justify-content: center;
+  }
+
+  .btn {
+    background-color: #54ccf0;
+    color: #fff;
+    width: 60%;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+  }
+
+  .btn:hover{
+    background-color: #ff99f3;
+  }
+  .btn:focus{
+    outline: none;
+    background-color: #a0e7ff;
+    color: white;
+  }
+
+  a{
+      text-align: center;
+      text-decoration: none;
+  }
+
+  .swal2-styled.swal2-confirm {
+    background-color: #fdb2ee !important;
+    border: none !important;
+}

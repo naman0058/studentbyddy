@@ -1,0 +1,76 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  /* .navbar {
+    background-color: #ffffff;
+    /*background-color: rgb(101, 244, 101);
+    box-shadow: 0px 5px 10px rgba(102, 97, 97, 0.2); /* Add shadow to the bottom 
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  */
+  .logo {
+    display: block; /* Ensures the image takes the full width of its container */
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .green-section {
+    box-shadow: inset 0 170px 50px rgb(101, 244, 101); /* Add inset shadow */
+    z-index: -1; /* Move the pseudo-element behind other content */
+    /*box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.2);*/
+    /*background-color: rgb(101, 244, 101);*/
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+  }
+  .square {
+    display: inline-block;
+    margin: 20px;
+    border: 2px solid #ffffff;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 230px; /* Adjust the maximum width as needed */
+    height: 245px;
+    vertical-align: top; /* Align the squares to the top */
+  }
+  .square img {
+    width: 100px;
+    height: 100px;
+  }
+  .heading {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .square-text {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 12px;
+  }
+  .text-row {
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  .txt {
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .btn-save {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(101, 244, 101);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Ensure the button takes the full width of its container */
+  }

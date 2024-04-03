@@ -1,0 +1,50 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  .logo {
+    display: block; /* Ensures the image takes the full width of its container */
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile-info {
+    width: 400px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .profile-info p {
+    margin: 5px 0;
+  }
+  
+  .profile-info .mobile-input,
+  .profile-info .email-input,
+  .profile-info .password-input {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  .btn-save {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(101, 244, 101);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  

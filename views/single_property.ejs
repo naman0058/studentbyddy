@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Student Buddy Program</title>
+  <link rel="stylesheet" href="/proppagestyles.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+      <div>
+        <a href="/" class="home">Home</a>
+        <a href="/home/about" class="about">About</a>
+        <a href="/browse-property" class="browse">Browse</a>
+        <a href="/home/contact" class="contact">Contact</a>
+        <a href="/home/blogs" class="housing">Blogs</a>
+        <img class="profile-pic" src="/project/static/Devanshi Chauhan.jpeg" alt="Profile" style="width:50px;height: 50px; border-radius: 50px;">
+      </div>
+    </div>
+  <div class="container">
+    <div class="back-arrow">
+      <a href="/browse-property">&larr; Back</a>
+    </div>
+    <div class="columns">
+      <div class="column column1">
+        <div class="box">
+            <p class="bname"><%=result[0][0].name%></p>
+            <p class="realtorname">By <%=result[0][0].userfirstname%> <%=result[0][0].userlastname%></p>
+            <p class="region"><%=result[0][0].address%></p>
+        </div>
+        <div class="box">
+            <img src="/images/<%=result[1][0].image%>" alt="Image 1" class="image1">
+        </div>
+      </div>
+      <div class="column column2">
+        <div class="box">
+          <p class="rent">Rs. <%=result[0][0].rent%> per month</p>
+          <p class="txt">Prices include maintenance and GST.</p>
+        </div>
+        <div class="box">
+          <a href="/brokerchat?second_party=<%=result[0][0].userid%>">  <button class="contactbroker"><i class="fa fa-phone"></i> Contact broker</button></a>
+          </div>
+          <div class="box">
+            <img src="/images/<%=result[1][1].image%>" alt="Image 2" class="image2">
+            <div class="additional-images">
+                <% for(i=2;i<result[1].length;i++){ %>
+              <img src="/images/<%=result[1][i].image%>" alt="Image 3">
+              <% } %>
+            </div>
+            <input type="hidden" value="<%=result[1].length -2%>" id="totalimage">
+            <% if(result[1].length>2){ %>
+                
+            <div class="expand-trigger" onclick="toggleImages(this)"><%=result[1].length -2%> more images</div>
+            <% } %>
+          </div>
+      </div>
+    </div>
+    <!-- After the columns div -->
+<div class="additional-info">
+    <div class="info-section">
+      <p><%=result[0][0].amenities%></p>
+      <p>Configuration</p>
+    </div>
+    <div class="divider"></div>
+    <div class="info-section">
+      <p>July to April</p>
+      <p>Availability</p>
+    </div>
+    <div class="divider"></div>
+    <div class="info-section">
+      <p>Rs. <%=result[0][0].rent%> per month</p>
+      <p>For Rent Only</p>
+    </div>
+    <div class="divider"></div>
+    <div class="info-section">
+      <p><%=result[0][0].area%> sq.ft</p>
+      <p>Carpet area</p>
+    </div>
+  </div>
+  
+  </div>
+  <script src="/proppagescript.js"></script>
+</body>
+</html>

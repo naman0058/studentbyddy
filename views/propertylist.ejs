@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Broker</title>
+  <link rel="stylesheet" href="/broker-final/propliststyles.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  </div>
+   <!-- Main Content -->
+
+
+   <% for(i=0;i<result.length;i++) { %>
+
+   <div class="container">
+    <!-- First Column -->
+    <div class="column">
+      <div class="cell">
+        <img src="/images/<%=result[i].propertyimage%>" alt="Image 1" style="width: 400px; height: 300px;">
+      </div>
+    </div>
+    <!-- Second Column -->
+    <div class="column">
+      <!-- Content with text and buttons -->
+      <div class="text-content">
+        <h2><%=result[i].name%></h2>
+        <p><%=result[i].address%></p>
+        <p><%=result[i].type%></p>
+        <a href="/property/delete?id=<%=result[i].id%>"> <button>Delete Property</button></a>
+      </div>
+    </div>
+    </div>
+  <hr>
+
+  <% } %>
+  
+</body>
+</html>

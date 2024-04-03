@@ -1,0 +1,143 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  .home {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -600px;
+    top: -20px;
+  }
+  .home::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }.about {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -550px;
+    top: -20px;
+  }
+  .about::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .browse {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -500px;
+    top: -20px;
+  }
+  .browse::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .contact {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -450px;
+    top: -20px;
+  }
+  .contact::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .studentbuddy {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -400px;
+    top: -20px;
+  }
+  .studentbuddy::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .profile-pic {
+    position: relative;
+    left: -350px;
+    top: -5px;
+  }
+  .navbar {
+    background-color: #ffffff;
+    /*background-color: rgb(101, 244, 101);*/
+    box-shadow: 0px 5px 10px rgba(102, 97, 97, 0.2); /* Add shadow to the bottom */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    margin-top: 20px;
+    height: 500px;
+  }
+  .column {
+    flex: 50%;
+    padding: 20px;
+  }
+  .column img {
+    max-width: 100%;
+    height: auto;
+  }
+  .program-title {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    top: 80px;
+  }
+  .bullet-points {
+    position: relative;
+    top: 60px;
+  }
+  .article1container {
+    /*position: relative;*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;/*gap between two rows*/
+    padding: 20px;
+    /*left: 100px;*/
+  }
+  
+  .article1 {
+    text-align: center;
+    border: 2px solid #000000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(28, 26, 26, 0.2); /* Add shadow to the bottom */
+    max-width: 250px; /* Adjust the maximum width as needed */
+    height: auto;
+  }
+  .article1 h3,
+  .article1 a {
+    margin: 5px 0; /* Reduce vertical margin for all text elements */
+  }
+  .article1 img {
+    margin-bottom: 5px;
+    border-radius: 75%;
+    width: 150px;
+    height: 150px;
+  }

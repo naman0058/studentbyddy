@@ -1,0 +1,144 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  .home {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -540px;
+    top: -20px;
+  }
+  .home::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }.about {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -500px;
+    top: -20px;
+  }
+  .about::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .browse {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -460px;
+    top: -20px;
+  }
+  .browse::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .studentbuddy {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -490px;
+    top: -20px;
+  }
+  .studentbuddy::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .contact {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -260px;
+    top: -20px;
+  }
+  .contact::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .housing {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -350px;
+    top: -20px;
+  }
+  .housing::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .profile-pic {
+    position: relative;
+    left: -350px;
+    top: -5px;
+  }
+  .navbar {
+    background-color: #ffffff;
+    /*background-color: rgb(101, 244, 101);*/
+    box-shadow: 0px 5px 10px rgba(102, 97, 97, 0.2); /* Add shadow to the bottom */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    margin-top: 20px;
+    height: 500px;
+  }
+  #profile-picture {
+    position: relative;
+    top: 50px;
+    left: 640px;
+    transform: translate(-25%, -50%);
+  }
+  #university,
+  #eating,
+  #age,
+  #status,
+  #location,
+  #sleeping-habits,
+  #hobbies {
+    text-align: center; /* Align text center horizontally */
+    margin: 0 auto; /* Center the elements horizontally */
+  }
+  .chat-button {
+    position: relative;
+    left: 628px;
+    background-color: rgb(101, 244, 101); /* Specific shade of green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Rounded edges */
+    cursor: pointer;
+
+  }
+  
+  .chat-button:hover {
+    background-color: #027d35; /* Darker shade of green on hover */
+  }
+  

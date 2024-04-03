@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Upload Property Details</title>
+  <link rel="stylesheet" href="/broker-final/uppropertystyles.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  </div>
+
+  <form action="/property/submit" method="post" enctype="multipart/form-data">
+  <section class="green-section">
+    <h1>Upload your property details</h1>
+    <p style="font-weight: bold;"><%=msg%></p>
+    <div class="square">
+        <img src="/broker-final/propertyaddress.png" alt="Square 1">
+        <div class="square-text">
+          <p class="heading">Property Address</p>
+          <input type="text" class="input-field" name="address" required placeholder="Enter property address">
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/propertytype.png" alt="Square 2">
+        <div class="square-text">
+          <p class="heading">Property Type</p>
+          <select class="dropdown" name="type">
+            <option value="apartment">Apartment</option>
+            <option value="flat">Flat</option>
+            <option value="bungalow">Bungalow</option>
+          </select>
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/amenities.png" alt="Square 3">
+        <div class="square-text">
+          <p class="heading">House Amenities</p>
+          <input type="text" class="input-field" name="amenities" required placeholder="Enter house amenities">
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/available.png" alt="Square 4">
+        <div class="square-text">
+          <p class="heading">Property Status</p>
+          <select class="dropdown" name="Status">
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+            <option value="Booked">Booked</option>
+          </select>
+        </div>
+    </div>
+  </section>
+  <!-- Second Section -->
+  <section class="green-section">
+    <div class="square">
+        <img src="/broker-final/bedroom.png" alt="Square 1">
+        <div class="square-text">
+          <p class="heading">Number of bedrooms</p>
+          <select class="dropdown" name="bedrooms">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/sqft.png" alt="Square 2">
+        <div class="square-text">
+          <p class="heading">SquareFoot</p>
+          <input type="text" name="area" required class="input-field" placeholder="E.g. - 750 sq.ft">
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/rent.png" alt="Square 3">
+        <div class="square-text">
+          <p class="heading">Monthly rent</p>
+          <input type="text" name="rent" required class="input-field" placeholder="E.g. - Rs. 62,000">
+        </div>
+    </div>
+    <div class="square">
+        <img src="/broker-final/deposit.png" alt="Square 4">
+        <div class="square-text">
+          <p class="heading">Security Deposit</p>
+          <input type="text" name="security_deposit" required class="input-field" placeholder="E.g. - Rs. 20,000">
+        </div>
+    </div>
+
+
+
+    
+  <!-- Upload images -->
+  <div class="container">
+    
+    <div class="upload-box">
+      <input type="file" id="file-input" name="images" required class="input-file" multiple>
+     <!-- <label for="file-input" class="btn-choose">Choose File</label> -->
+      <button class="btn-save">Add Property</button>
+    </div>
+  </div>
+</section>
+
+</form>
+</body>
+</html>

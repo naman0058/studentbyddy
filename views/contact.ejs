@@ -1,0 +1,252 @@
+<%- include ('./header.ejs') %>
+
+  <!--/ Nav End /-->
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Contact US</h1>
+            <span class="color-text-a">Have questions or feedback? Please pop us a message so that we can continue to fulfil your needs!</span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/template/index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Contact
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Contact Star /-->
+  <section class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="contact-map box">
+            <div id="map" class="contact-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9942917360277!2d72.83459257466595!3d19.10790635097117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c98cafee09db%3A0x3fad6c7023711b2!2sSVKM%E2%80%99s%20NMIMS%20Mukesh%20Patel%20School%20of%20Technology%20Management%20%26%20Engineering!5e0!3m2!1sen!2sza!4v1707657571787!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 section-t8">
+          <div class="row">
+            <div class="col-md-7">
+              <form class="form-a contactForm" action="/contact/submit" method="post" role="form">
+                <div id="" style="color: green;"><%=msg%></div>
+                <div id="errormessage"></div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input type="text" name="name" required class="form-control form-control-lg form-control-a" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input name="email" type="email" required class="form-control form-control-lg form-control-a" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <input type="text" name="subject" required class="form-control form-control-lg form-control-a" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <textarea name="message" required class="form-control" name="message" cols="45" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-a">Send Message</button>
+                    
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-5 section-md-t3">
+              <div class="icon-box section-b2">
+                <div class="icon-box-icon">
+                  <span class="ion-ios-paper-plane"></span>
+                </div>
+                <div class="icon-box-content table-cell">
+                  <div class="icon-box-title">
+                    <h4 class="icon-title">Say Hello</h4>
+                  </div>
+                  <div class="icon-box-content">
+                    <p class="mb-1">Email.
+                      <span class="color-a">contact@residenzia.in</span>
+                    </p>
+                    <p class="mb-1">Phone.
+                      <span class="color-a">9967646790</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="icon-box section-b2">
+                <div class="icon-box-icon">
+                  <span class="ion-ios-pin"></span>
+                </div>
+                <div class="icon-box-content table-cell">
+                  <div class="icon-box-title">
+                    <h4 class="icon-title">Find us in</h4>
+                  </div>
+                  <div class="icon-box-content">
+                    <p class="mb-1">
+                      SVKM'S NMIMS MPSTME
+                      <br> MUMBAI INDIA
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="icon-box">
+                <div class="icon-box-icon">
+                  <span class="ion-ios-redo"></span>
+                </div>
+                <div class="icon-box-content table-cell">
+                  <div class="icon-box-title">
+                    <h4 class="icon-title">Social networks</h4>
+                  </div>
+                  <div class="icon-box-content">
+                    <div class="socials-footer">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="#" class="link-one">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#" class="link-one">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#" class="link-one">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#" class="link-one">
+                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#" class="link-one">
+                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Contact End /-->
+
+  <!--/ footer Star /-->
+  <section class="section-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">Residenzia</h3>
+            </div>
+            <div class="w-body-a">
+              <p class="w-text-a color-text-a">
+                Real Estate finds made easily available for you.
+              </p>
+            </div>
+            <div class="w-footer-a">
+              <ul class="list-unstyled">
+                <li class="color-a">
+                  <span class="color-text-a">Phone .</span> 9967646790</li>
+                <li class="color-a">
+                  <span class="color-text-a">Email .</span> contact@residenzia.in</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">The Company</h3>
+            </div>
+            <div class="w-body-a">
+              <div class="w-body-a">
+                <ul class="list-unstyled">
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                  </li>
+                  <li class="item-list-a">
+                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 section-md-t3">
+          <div class="widget-a">
+            <div class="w-header-a">
+              <h3 class="w-title-a text-brand">International sites</h3>
+            </div>
+            <div class="w-body-a">
+              <ul class="list-unstyled">
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Andheri</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Juhu</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Santacruz</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Mira Road</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">Oshiwara</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="fa fa-angle-right"></i> <a href="#">VileParle</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include ('./footer.ejs') %>

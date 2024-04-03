@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/project/static/loginn.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:300px;height: 150px;"> 
+    <div>
+    </div>
+  </div>
+  <div class="login">
+    <div class="columns">
+      <img src="/project/static/loginpic.jpg" alt="Image" class="loginpic" style="width: 600px; height: 400px;">
+    </div>
+    <div class="columns">
+      <p style="color: red;"><%=msg%></p>
+
+      <div class="program-title">Login to your Account</div>
+      <form id="loginform" action="/login/check" method="post">
+        <div class="form-group">
+          <input type="email" name = 'email' class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="password" name = 'password' class="form-control" id="password" width="50%" placeholder="Enter password" required>
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fa fa-eye" id="togglePassword"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <br>
+       
+         <button type="submit" class="btn head-btn2 ml-2 my-4" id="loginbutton">LOGIN</button> 
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="reg">
+    <h2>Dont have an account ?</h2><a href="/register" class="register">Register Here</a>
+  </div>
+</body>
+</html>

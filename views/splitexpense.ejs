@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <title>Expense Tracker</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        body{
+            font-family: monospace;
+        }
+
+        button{
+            margin-top: 10px;
+        }
+
+        .container{
+            margin-top: 30px;
+        }
+
+        .row{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #peopleLists > [class^="col-md-"] {
+            border: 1px solid #fff; 
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        ul{
+            padding-left: 0px;
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+        /* Nascondi le frecce dell'input number */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        .form-control, .input-group {
+            width: 50% !important;
+        }
+
+        h1, h2, h3 {
+            color: #fff;
+        }
+
+        #peopleLists, #results, #calculateButton{
+            margin-top: 50px;
+        }
+
+        #results {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .pulsate-fwd {
+            -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+                    animation: pulsate-fwd 0.5s ease-in-out infinite both;
+        }
+
+        @-webkit-keyframes pulsate-fwd {
+            0% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+            50% {
+                -webkit-transform: scale(1.1);
+                        transform: scale(1.1);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+        }
+
+        @keyframes pulsate-fwd {
+            0% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+            50% {
+                -webkit-transform: scale(1.1);
+                        transform: scale(1.1);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+            }
+        }
+
+        .slide-in-bck-bottom {
+            -webkit-animation: slide-in-bck-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                    animation: slide-in-bck-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        @-webkit-keyframes slide-in-bck-bottom {
+            0% {
+                -webkit-transform: translateZ(700px) translateY(300px);
+                        transform: translateZ(700px) translateY(300px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateZ(0) translateY(0);
+                        transform: translateZ(0) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-bck-bottom {
+            0% {
+                -webkit-transform: translateZ(700px) translateY(300px);
+                        transform: translateZ(700px) translateY(300px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateZ(0) translateY(0);
+                        transform: translateZ(0) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .bg-primary {
+            animation:slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient( #00000066 30%, #16a3559c 70%);
+            bottom:0;
+            left:-50%;
+            opacity:.5;
+            position:fixed;
+            right:-50%;
+            top:0;
+            z-index:-1;
+        }
+
+        .bg-secondary {
+            animation-direction:alternate-reverse;
+            animation-duration:4s;
+        }
+
+        .bg-tertiary {
+            animation-duration:5s;
+        }
+
+        @keyframes slide {
+            0% {
+                transform:translateX(-25%);
+            }
+            100% {
+                transform:translateX(25%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="bg-primary"></div>
+        <div class="bg-primary bg-secondary"></div>
+        <div class="bg-primary bg-tertiary"></div>
+        <h1 class="animate__animated animate__bounce">Split expenses with friends easily!</h1>
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="mb-3" for="numPeople">Number of people</label>
+                    <input type="number" id="numPeople" class="form-control mx-auto" min="2" max="10" required>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row" id="peopleLists">
+            <!-- Select options for people -->
+        </div>
+    
+        <div class="row" id="resultLists">
+            <!-- Totale liste -->
+        </div>
+    
+        <div id="results" class="slide-in-bck-bottom">
+            <!-- I risultati saranno mostrati qui -->
+        </div>
+    </div>
+    
+    <script>
+
+
+let frienddata = []
+
+$.getJSON('/get-friend-list',data=>{
+
+    frienddata = data;
+                
+            })
+
+        // Genera le liste per le persone
+        $("#numPeople").change(function () {
+            var numPeople = parseInt($(this).val());
+    
+            if (numPeople === 1) {
+                alert("At least 2 People required");
+                return;
+            }
+            else if (numPeople > 10) {
+                alert("Enter between 2 and 10!");
+                return;
+            }
+    
+            $("#peopleLists").empty();
+
+
+           
+    
+            var selectOptions = '<select class="form-control mx-auto">';
+              
+            for (var i = 0; i < frienddata.length; i++) {
+                console.log(frienddata[i])
+                selectOptions += '<option value="' + frienddata[i].friend_name + '">' + frienddata[i].friend_name + ' ' + '</option>';
+
+            }
+            selectOptions += '</select>';
+    
+            for (var i = 0; i < numPeople; i++) {
+                var resultcolumns = '<div class="col-md-' + (12 / numPeople) + '"><strong><p id="total' + i + '"></p></strong></div>';
+                var listHTML = '<div class="col-md-' + (12 / numPeople) + ' animate__animated animate__fadeIn"><h3  id="name' + i + '">Person ' + (i + 1) + '</h3>' + selectOptions + '<ul id="person' + i + '"></ul><button class="btn btn-primary" onclick="addInputToList(\'person' + i + '\')">+</button></div>';
+    
+                $("#peopleLists").append(listHTML);
+                $("#resultLists").append(resultcolumns);
+            }
+    
+            $("#peopleLists").append("<div class='row'><div class='col-md-12'><button id='calculateButton' class='pulsate-fwd btn btn-primary'>Calculate</button></div></div>");
+        });
+    
+        // Add Input on list
+        function addInputToList(listId) {
+            $("#" + listId).append('<li><div class="input-group mx-auto mb-2 animate__animated animate__fadeIn"><div class="input-group-prepend"><span class="input-group-text">Rs.</span></div><input type="number" class="form-control" placeholder="Amount" aria-label="Amount"></div></li>');
+        }
+    
+        // Calcola
+        $("#peopleLists").on("click", "#calculateButton", function () 
+        {
+            var numPeople = parseInt($("#numPeople").val());
+            var totals = new Array(numPeople).fill(0);
+    
+            // Calcola il totale per ciascuna persona
+            for (var i = 0; i < numPeople; i++) {
+                $("#person" + i + " li").each(function () {
+                    var amount = parseFloat($(this).find("input").val());
+                    totals[i] += isNaN(amount) ? 0 : amount;
+                    $("#total" + i).text("Total: " + totals[i] + "Rs.");
+                    $("#total" + i).attr("amount", totals[i]); // use attribute to set amount column
+                });
+            }
+    
+            // Calcola il totale complessivo
+            var totalSum = totals.reduce((a, b) => a + b, 0);
+    
+            if (totalSum === 0) {
+                alert("Enter Non zero number!");
+                return;
+            }
+    
+            // Calcola la quota per persona
+            var share = totalSum / numPeople;
+    
+            // Genera la suddivisione dei conti
+            var resultsHTML = "<h2> Division of Contri:</h2><p>Total money: " + totalSum + "</p><p>Total per person: " + share + "</p>";
+            for (var i = 0; i < numPeople; i++) {
+                var name = $("#name" + i).text();
+                var totalPerson = $("#total" + i).attr("amount");
+                var diffCash = totalPerson - share;
+    
+                if (diffCash < 0) {
+                    // Deve dare soldi
+                    resultsHTML += name + " owes " + Math.abs(diffCash) + "Rs.<br/>";
+                }
+                else if (diffCash == 0) {
+                    // Non deve dare o ricevere soldi
+                    resultsHTML += name + " Nothing received or owed" + "<br/>";
+                }
+                else {
+                    // Deve riceverli
+                    resultsHTML += name + " receives " + diffCash + "Rs.<br/>";
+                }
+            }
+    
+            $("#results").html(resultsHTML).show();
+        });
+    </script>
+    

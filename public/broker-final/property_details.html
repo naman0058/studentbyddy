@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Upload Property Details</title>
+  <link rel="stylesheet" href="uppropertystyles.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  </div>
+  <section class="green-section">
+    <h1>Upload your property details</h1>
+    <div class="square">
+        <img src="propertyaddress.png" alt="Square 1">
+        <div class="square-text">
+          <p class="heading">Property Address</p>
+          <input type="text" class="input-field" placeholder="Enter property address">
+        </div>
+    </div>
+    <div class="square">
+        <img src="propertytype.png" alt="Square 2">
+        <div class="square-text">
+          <p class="heading">Property Type</p>
+          <select class="dropdown">
+            <option value="apartment">Apartment</option>
+            <option value="flat">Flat</option>
+            <option value="bungalow">Bungalow</option>
+          </select>
+        </div>
+    </div>
+    <div class="square">
+        <img src="amenities.png" alt="Square 3">
+        <div class="square-text">
+          <p class="heading">House Amenities</p>
+          <input type="text" class="input-field" placeholder="Enter house amenities">
+        </div>
+    </div>
+    <div class="square">
+        <img src="available.png" alt="Square 4">
+        <div class="square-text">
+          <p class="heading">Property Status</p>
+          <select class="dropdown">
+            <option value="apartment">Available</option>
+            <option value="flat">Unavailable</option>
+            <option value="bungalow">Booked</option>
+          </select>
+        </div>
+    </div>
+  </section>
+  <!-- Second Section -->
+  <section class="green-section">
+    <div class="square">
+        <img src="bedroom.png" alt="Square 1">
+        <div class="square-text">
+          <p class="heading">Number of bedrooms</p>
+          <select class="dropdown">
+            <option value="apartment">1</option>
+            <option value="flat">2</option>
+            <option value="bungalow">3</option>
+          </select>
+        </div>
+    </div>
+    <div class="square">
+        <img src="sqft.png" alt="Square 2">
+        <div class="square-text">
+          <p class="heading">SquareFoot</p>
+          <input type="text" class="input-field" placeholder="E.g. - 750 sq.ft">
+        </div>
+    </div>
+    <div class="square">
+        <img src="rent.png" alt="Square 3">
+        <div class="square-text">
+          <p class="heading">Monthly rent</p>
+          <input type="text" class="input-field" placeholder="E.g. - Rs. 62,000">
+        </div>
+    </div>
+    <div class="square">
+        <img src="deposit.png" alt="Square 4">
+        <div class="square-text">
+          <p class="heading">Security Deposit</p>
+          <input type="text" class="input-field" placeholder="E.g. - Rs. 20,000">
+        </div>
+    </div>
+  </section>
+  <button class="btn-add">Add Property</button>
+  <!-- Upload images -->
+  <h1 style="text-align: center;">Upload Property Images</h1>
+  <div class="container">
+    <div class="input-box">
+      <input type="text" class="input-field" placeholder="Enter property name">
+      <button class="btn-enter">Enter</button>
+    </div>
+    <div class="upload-box">
+      <input type="file" id="file-input" class="input-file">
+     <!-- <label for="file-input" class="btn-choose">Choose File</label> -->
+      <button class="btn-save">Save Images</button>
+    </div>
+  </div>
+</body>
+</html>

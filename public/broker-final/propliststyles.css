@@ -1,0 +1,62 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  .logo {
+    display: block; /* Ensures the image takes the full width of its container */
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Main content container styles */
+.container {
+    display: flex;
+  }
+  
+  /* Column styles */
+  .column {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Cell styles */
+  .cell {
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Sub-column styles */
+  .sub-column {
+    margin-bottom: 20px;
+  }
+  
+  .sub-column h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* Text content styles */
+  .text-content {
+    margin-top: 20px;
+  }
+  
+  .text-content p {
+    margin-bottom: 10px;
+  }
+  
+  .text-content button {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(101, 244, 101);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+
+  }
+  hr {
+    border: 0;
+    height: 5px; /* Adjust the height to make the line thicker */
+    background-color: black; /* Set the color of the line */
+    margin: 20px 0; /* Optional: Add margin for spacing */
+  }

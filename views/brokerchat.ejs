@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/chatscreenstyles.css">
+  <title>Profile Page</title>
+  <style>
+    .messages {
+    max-height: 200px; /* or any other value that fits your layout */
+    overflow-y: auto;
+}
+
+
+
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+      <div>
+        <a href="/" class="home">Home</a>
+        <a href="/home/about" class="about">About</a>
+        <a href="/browse-property" class="browse">Browse</a>
+        <a href="/home/contact" class="contact">Contact</a>
+        <a href="/home/blogs" class="housing">Blogs</a>
+        <img class="profile-pic" src="/project/static/Devanshi Chauhan.jpeg" alt="Profile" style="width:50px;height: 50px; border-radius: 50px;">
+      </div>
+    </div>  
+    <div class="box">
+        <div class="topbar">
+            <div class="back-arrow">
+                <a href="javascript:history.back()"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <div class="username">
+                <h3><%=result[0][0].fname%> <%=result[0][0].lname%></h3>
+            </div>
+            <div class="info-icon">
+                <i class="fa fa-info-circle"></i>
+            </div>
+        </div>
+
+
+        <div class="chat" id="chat">
+
+          <% for(i=0; i < result[1].length; i++) { %>
+            <% if(result[1][i].first_party == first_party) { %>
+              <% if(result[1][i].message.includes('.png')) { %>
+               <p> <img src="/images/<%=result[1][i].message%>" class="left-image"></p>
+              <% } else { %>
+                <p class="left"><%=result[1][i].message%></p>
+              <% } %>
+            <% } else { %>
+              <% if(result[1][i].message.includes('.png')) { %>
+              <p> <img src="/images/<%=result[1][i].message%>" class="right-image"></p>
+              <% } else { %>
+                <p class="right"><%=result[1][i].message%></p>
+              <% } %>
+            <% } %>
+          <% } %>
+          
+
+      </div>
+
+      <form id="myForm" action="/brokerchat/submit" method="post" enctype="multipart/form-data">
+        <div class="bottombar" style="position: fixed;bottom: 0;">
+            <div class="upload-icon">
+                <input type="file" name="image" id="fileUpload" style="display:none" onchange="uploadImage()" multiple>
+                <input type="hidden" name="first_party" value="<%=first_party%>">
+                <input type="hidden" name="second_party" value="<%=second_party%>">
+
+                <label for="fileUpload"><i class="fa-solid fa-paperclip"></i></label>
+            </div>
+            <input type="text" name="message" required class="text-input" placeholder="Type your message...">
+            <div class="send-icon" onclick="submitForm()">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+        </div>
+    </form>
+
+
+    </div>
+</body>
+
+<script>
+  function uploadImage() {
+
+
+      document.getElementById('myForm').submit();
+  }
+
+  function submitForm() {
+    alert('hi')
+      // Do any additional validation or processing here
+      document.getElementById('myForm').submit();
+  }
+</script>
+
+<script>
+  window.onload = function() {
+    // alert('hi')
+      var chatContainer = document.getElementById('chat');
+      // var container = document.getElementById("box");
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      document.body.scrollTop = document.body.scrollHeight;
+
+  };
+
+
+  // window.onload = function() {
+  //           var container = document.getElementById("box");
+  //           container.scrollTop = container.scrollHeight;
+  //       };
+
+</script>
+</html>

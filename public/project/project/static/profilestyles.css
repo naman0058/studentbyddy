@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .profile {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details {
+    text-align: left;
+  }
+  
+  .name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .age,
+  .gender,
+  .university {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  

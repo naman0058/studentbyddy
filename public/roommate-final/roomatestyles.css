@@ -1,0 +1,135 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+  }
+  .home {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -600px;
+    top: -20px;
+  }
+  .home::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }.about {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -550px;
+    top: -20px;
+  }
+  .about::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .browse {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -500px;
+    top: -20px;
+  }
+  .browse::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .contact {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -450px;
+    top: -20px;
+  }
+  .contact::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .housing {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -400px;
+    top: -20px;
+  }
+  .housing::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .roommate {
+    color: black; /* Change the color to your preferred color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    left: -370px;
+    top: -20px;
+  }
+  .roommate::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust as needed */
+    width: 100%;
+    border-bottom: 2px solid rgb(101, 244, 101); /* Set the color and thickness of the underline */
+  }
+  .profile-pic {
+    position: relative;
+    left: -350px;
+    top: -5px;
+  }
+  .navbar {
+    background-color: #ffffff;
+    /*background-color: rgb(101, 244, 101);*/
+    box-shadow: 0px 5px 10px rgba(102, 97, 97, 0.2); /* Add shadow to the bottom */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .buddies-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;/*gap between two rows*/
+    left: 100px;
+  }
+  
+  .buddy {
+    text-align: center;
+    border: 2px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(28, 26, 26, 0.2); /* Add shadow to the bottom */
+    max-width: 250px; /* Adjust the maximum width as needed */
+    height: auto;
+  }
+  .buddy h3,
+  .buddy h5,
+  .buddy p {
+    margin: 5px 0; /* Reduce vertical margin for all text elements */
+  }
+  .buddy img {
+    margin-bottom: 5px;
+    border-radius: 75%;
+    width: 100px;
+    height: 100px;
+  }

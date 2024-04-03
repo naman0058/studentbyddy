@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Broker</title>
+  <link rel="stylesheet" href="/broker-final/profupdatestyles.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  </div>
+
+  <form action="/profile/update" method="post">
+  <div class="profile-update">
+    <div class="profile-info">
+        <p style="color: green;"><%=msg%></p>
+      <p class="name">Name: <%=result[0].fname%> <%=result[0].lname%></p>
+     
+      <p class="mobile-label">Mobile number: </p>
+      <p class="mobile-sample"><%=result[0].phone%></p>
+      <!-- <p class="change-mobile-label">Change mobile number:</p>
+      <input type="text" class="mobile-input" placeholder="Enter new mobile number"> -->
+      <p class="email-label">Email ID:</p>
+      <p class="email-sample"><%=result[0].email%></p>
+      <!-- <p class="change-email-label">Change email ID:</p>
+      <input type="text" class="email-input" placeholder="Enter new email ID"> -->
+      <p class="update-password-label">Update password:</p>
+      <input type="password" class="password-input" name="password" placeholder="Enter new password" required>
+      <br>
+      <button type="submit" class="btn-save">Save Changes</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
