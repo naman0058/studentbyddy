@@ -309,6 +309,14 @@ router.get('/find-roommate-list',(req,res)=>{
 })
 
 
+router.get('/get-studentbuddy-list',(req,res)=>{
+  pool.query(`select * from studentbuddy`,(err,result)=>{
+    if(err) throw err;
+    else res.json(result)
+  })
+})
+
+
 
 
 router.get('/roomatechat',(req,res)=>{
@@ -323,6 +331,25 @@ router.get('/roomatechat',(req,res)=>{
     if(err) throw err;
     // else res.json(result)
     else res.render('chat',{result,first_party,second_party})
+  })
+  // 
+})
+
+
+
+
+router.get('/studentbuddychat',(req,res)=>{
+  let first_party = req.session.userid;
+  let second_party = req.query.second_party;
+  
+  var query = `select * from studentbuddy where id = '${second_party}';`
+  var query1 = `SELECT * FROM studentbuddychat WHERE first_party IN ('${first_party}', '${second_party}') and second_party IN ('${first_party}', '${second_party}')`
+
+
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    // else res.json(result)
+    else res.render('studentbuddychat',{result,first_party,second_party})
   })
   // 
 })
@@ -423,5 +450,51 @@ router.post('/brokerchat/submit',upload.array('image',20),(req,res)=>{
 })
 
 
+router.post('/studentbuddychat/submit',upload.array('image',20),(req,res)=>{
+  // res.json({body:req.body,file:req.files})
+
+  let body = req.body;
+
+  if(req.body.message){
+     pool.query(`insert into studentbuddychat set ?`,body,(err,result)=>{
+      if(err) throw err;
+      else {
+        if(req.files){
+        for(i=0;i<req.files.length;i++){
+          pool.query(`insert into studentbuddychat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+            if(err) throw err;
+            else console.log('done');
+          })
+        }
+        res.redirect(`/studentbuddychat?first_party=${req.body.first_party}&second_party=${req.body.second_party}`)
+        }
+        else{
+          res.redirect(`/studentbuddychat?first_party=${req.body.first_party}&second_party=${req.body.second_party}`)
+        }
+      }
+     })
+  }
+  else{
+    for(i=0;i<req.files.length;i++){
+      pool.query(`insert into studentbuddychat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+        if(err) throw err;
+        else console.log('done');
+      })
+    }
+    res.redirect(`/studentbuddychat?first_party=${req.body.first_party}&second_party=${req.body.second_party}`)
+    
+  }
+
+})
+
+
+router.post('/studentbuddy/submit',upload.single('image'),(req,res)=>{
+  let body = req.body;
+  body['image'] = req.file.filename
+  pool.query(`insert into studentbuddy set ?`,body,(err,result)=>{
+    if(err) throw err;
+    else res.render(`studentbuddy_form`,{msg:'Successfully Submmitted'})
+  })
+})
 
 module.exports = router;

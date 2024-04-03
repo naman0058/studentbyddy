@@ -20,26 +20,28 @@ const buddiesData = [
 { name: 'Jyotir Jain', university: 'MPSTME', image: '/static/Jyotir.jpg', text: 'Loves anything and everything related to finance and tech', age: '21', status: 'Student', location: 'Kandivali'}
 ];
 
-buddiesData.forEach(buddy => {
+$.getJSON('/get-studentbuddy-list', data => {
+  console.log('data', data);
+  data.forEach(buddy => {
 const buddyDiv = document.createElement('div');
 buddyDiv.classList.add('buddy');
 
 const image = document.createElement('img');
-image.src = buddy.image;
+image.src = '/images/'+ buddy.image;
 image.alt = buddy.name;
 
 const nameHeading = document.createElement('h3');
 nameHeading.textContent = buddy.name;
 
 const universityText = document.createElement('h5');
-universityText.textContent = buddy.university;
+universityText.textContent = buddy.description;
 
 const textParagraph = document.createElement('p');
-textParagraph.textContent = buddy.text;
+textParagraph.textContent = buddy.location;
 
  // Add click event listener to dynamically redirect to profile page with URL parameters
  buddyDiv.addEventListener('click', () => {
-  const profilePageURL = `sbprofile.html?name=${encodeURIComponent(buddy.name)}&university=${encodeURIComponent(buddy.university)}&text=${encodeURIComponent(buddy.text)}&image=${encodeURIComponent(buddy.image)}&age=${encodeURIComponent(buddy.age)}&status=${encodeURIComponent(buddy.status)}&location=${encodeURIComponent(buddy.location)}`;
+  const profilePageURL = `/home/studentbuddy_profile?id=${encodeURIComponent(buddy.id)}&name=${encodeURIComponent(buddy.name)}&description=${encodeURIComponent(buddy.description)}&image=${encodeURIComponent(buddy.image)}&age=${encodeURIComponent(buddy.age)}&status=${encodeURIComponent(buddy.status)}&location=${encodeURIComponent(buddy.location)}`;
   window.location.href = profilePageURL;
 });
 
@@ -65,4 +67,5 @@ if (window.location.pathname.includes('sbprofile.html')) {
 }
 
 buddiesContainer.appendChild(buddyDiv);
+  });
 });

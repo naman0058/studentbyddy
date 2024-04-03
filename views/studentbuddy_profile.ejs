@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Student Buddy Profile</title>
+  <link rel="stylesheet" href="/project/static/sbprofilestyles.css">
+</head>
+<body>
+  <div class="navbar">
+    <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  <div>
+    <a href="/template/index.html" class="home">Home</a>
+    <a href="/template/about.html" class="about">About</a>
+    <a href="/template/property-grid.html" class="browse">Browse</a>
+    <a href="/template/contact.html" class="contact">Contact</a>
+    <a href="/template/student_buddy.html" class="studentbuddy">Student Buddy</a>
+    <a href="/template/housing_checklist.html" class="housing">Housing Checklist</a>
+    <img class="profile-pic" src="/project/static/Devanshi Chauhan.jpeg" alt="Profile" style="width:50px;height: 50px; border-radius: 50px;">
+  </div>
+  </div>
+  <h1 id="name" style="text-align: center;">Student Buddy's Name</h1>
+  <img id="profile-picture" src="" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 35%;">
+  <h3 id="university">University</h3>
+  <p id="text">Student buddy's description</p>
+  <p id="age">Age of student buddy</p>
+  <p id="status">Working or student buddy</p>
+  <p id="location">Location of student buddy</p>
+  <p id="id">Location of student buddy</p>
+
+
+  <!-- Add more details if needed -->
+  
+  <script>
+    // JavaScript code to fetch and display profile details
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const id = params.get('id');
+      const university = params.get('description');
+      const text = params.get('text');
+      const image = params.get('image');
+      const age = params.get('age');
+      const status = params.get('status');
+      const location = params.get('location');
+  document.getElementById('id').textContent = id;
+
+      
+      document.getElementById('name').textContent = name;
+      document.getElementById('university').textContent = university;
+      document.getElementById('text').textContent = text;
+      document.getElementById('profile-picture').src = '/images/'+image;
+      document.getElementById('age').textContent = age;
+      document.getElementById('status').textContent = status;
+      document.getElementById('location').textContent = location;
+    };
+  </script>
+  <!-- <button class="chat-button" onclick="window.location.href='chatting.html'">Chat Now</button> -->
+ <button class="chat-button" onclick="window.location.href=`/studentbuddychat?second_party=${document.getElementById('id').textContent}`">Chat Now </button>
+
+</body>
+</html>
