@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  
   <title>Student Buddy Program</title>
   <link rel="stylesheet" href="/proppagestyles.css">
 </head>
@@ -43,14 +44,20 @@
         <div class="box">
           <a href="/brokerchat?second_party=<%=result[0][0].userid%>">  <button class="contactbroker"><i class="fa fa-phone"></i> Contact broker</button></a>
           </div>
+
+
+          <input type="hidden" value="<%=result[1].length -2%>" id="totalimage">
+
+
           <div class="box">
             <img src="/images/<%=result[1][1].image%>" alt="Image 2" class="image2">
-            <div class="additional-images">
+            <div class="additional-images"  style="display: none;">
                 <% for(i=2;i<result[1].length;i++){ %>
               <img src="/images/<%=result[1][i].image%>" alt="Image 3">
               <% } %>
             </div>
-            <input type="hidden" value="<%=result[1].length -2%>" id="totalimage">
+
+
             <% if(result[1].length>2){ %>
                 
             <div class="expand-trigger" onclick="toggleImages(this)"><%=result[1].length -2%> more images</div>
@@ -82,6 +89,31 @@
   </div>
   
   </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8" style="position:relative;left:10%">
+    
+      <% for(i=0;i<result[2].length;i++){ %>
+     
+        <p><%=result[2][i].name%></p>
+        <p><%=result[2][i].review%></p>
+
+
+        <% } %>
+
+    </div>
+    <div class="col-lg-4" style="position:relative;left:70%">
+    <form action="/review/submit" method="post">
+      <input class="form-control" name="name" placeholder="Enter Name"> <br/><br/>
+      <input type="hidden" name="propertyid" value="<%=propertyid%>">
+      <textarea type="text" name="review" class="form-control" placeholder="Enter Review"></textarea> <br/><br/>
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </div>
+</div>
+
   <script src="/proppagescript.js"></script>
 </body>
 </html>

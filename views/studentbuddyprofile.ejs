@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="/project/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <title>Broker</title>
+  <link rel="stylesheet" href="/active-chat-zip/active-chat/profupdatestyles.css">
+</head>
+<body>
+  <div class="navbar">
+      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+  </div>
+
+  <form action="/studentbuddy/profile/update" method="post">
+
+  <div class="profile-update">
+    <div class="profile-info">
+        <p style="color: green;"><%=msg%></p>
+
+      <p class="name">Name: <%=result[0].name%></p>
+      <p class="details">Age: <%=result[0].age%></p>
+      <p class="mobile-label">A line about yourself: <%=result[0].description%> </p>
+      <p class="mobile-sample">Hey! I'm your student buddy.</p>
+      <p class="change-mobile-label">Change location</p>
+      <input type="text" class="mobile-input" value="<%=result[0].location%>" name="location" placeholder="Enter new location">
+      <p class="change-email-label">Change status: </p>
+      <div class="radio-group">
+        <label>Status:</label>
+        <input type="radio" id="student" name="status" value="Student" <%= result[0].status === "Student" ? "checked" : "" %> required>
+<label for="student">Student</label>
+<input type="radio" id="working" name="status" value="Working" <%= result[0].status === "Working" ? "checked" : "" %>>
+<label for="working">Working</label>
+
+      </div>
+      <br>
+      <button class="btn-save">Save Changes</button>
+    </div>
+  </div>
+  </form>
+</body>
+</html>

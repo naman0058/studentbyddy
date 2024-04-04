@@ -16,6 +16,10 @@ router.get('/', verfiy.authentication ,  function(req, res, next) {
     res.render('broker', { title: 'Express' });
 
   }
+  else if(req.session.user_type == 'Student Buddy'){
+    
+    res.render('studentbyuddy_home', { title: 'Express' });
+  }
   else{
     res.render('index', { title: 'Express' });
 
@@ -194,6 +198,15 @@ router.get('/profile',verfiy.authentication,(req,res)=>{
 })
 
 
+
+router.get('/studentbuddy/profile',verfiy.authentication,(req,res)=>{
+  pool.query(`select * from studentbuddy where id = '${req.session.userid}'`,(err,result)=>{
+    if(err) throw err;
+    else res.render(`studentbuddyprofile`,{result,msg:''})
+  })
+})
+
+
 router.post('/profile/update',(req,res)=>{
   pool.query(`update user set password = '${req.body.password}' where id = '${req.session.userid}'`,(err,result)=>{
     if(err) throw err;
@@ -205,6 +218,22 @@ router.post('/profile/update',(req,res)=>{
     }
   })
 })
+
+
+
+router.post('/studentbuddy/profile/update',(req,res)=>{
+  pool.query(`update studentbuddy set location = '${req.body.location}', status = '${req.body.status}' where id = '${req.session.userid}'`,(err,result)=>{
+    if(err) throw err;
+    else {
+      pool.query(`select * from studentbuddy where id = '${req.session.userid}'`,(err,result)=>{
+        if(err) throw err;
+        else res.render(`studentbuddyprofile`,{result,msg:'Update Successfully'})
+      })
+    }
+  })
+})
+
+
 
 
 router.get('/logout', (req, res) => {
@@ -275,9 +304,10 @@ router.get('/browse/single-property',verfiy.authentication,(req,res)=>{
    (select u.lname from user u where u.id = p.userid) as userlastname
    from property p where p.id  = '${req.query.id}';`
   var query1 = `select * from images where propertyid = '${req.query.id}';`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select * from review where propertyid = '${req.query.id}';`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
-    else res.render('single_property',{result})
+    else res.render('single_property',{result,propertyid:req.query.id})
   })
   
 })
@@ -289,6 +319,15 @@ router.post('/roommate/submit',upload.single('image'),(req,res)=>{
   pool.query(`insert into roommate set ?`,body,(err,result)=>{
     if(err) throw err;
     else res.render(`addroommate`,{msg:'Successfully Submmitted'})
+  })
+})
+
+
+router.post('/review/submit' ,(req,res)=>{
+  let body = req.body;
+  pool.query(`insert into review set ?`,body,(err,result)=>{
+    if(err) throw err;
+    else res.redirect(`/browse/single-property?id=${req.body.propertyid}`)
   })
 })
 
@@ -350,6 +389,54 @@ router.get('/studentbuddychat',(req,res)=>{
     if(err) throw err;
     // else res.json(result)
     else res.render('studentbuddychat',{result,first_party,second_party})
+  })
+  // 
+})
+
+
+
+
+router.get('/studentbuddyactivechat',(req,res)=>{
+  let first_party = req.session.userid;
+  let second_party = req.query.second_party;
+  
+  var query = `select * from user where id = '${second_party}';`
+  var query1 = `SELECT * FROM studentbuddychat WHERE first_party IN ('${first_party}', '${second_party}') and second_party IN ('${first_party}' , '${second_party}');`
+  var query2 = `SELECT distinct(s.first_party) , 
+  (select u.fname from user u where u.id = s.first_party) as userfirstname,
+  (select u.lname from user u where u.id = s.first_party) as userlastname
+  FROM studentbuddychat s where s.second_party = '${req.session.userid}';`
+  var query3 = `select * from studentbuddy where id = '${req.session.userid}';`
+
+
+  pool.query(query+query1+query2+query3,(err,result)=>{
+    if(err) throw err;
+    // else res.json(result)
+    else res.render('studentbuddyactivechat',{result,first_party,second_party})
+
+  })
+  // 
+})
+
+
+router.get('/brokeractivechat',(req,res)=>{
+  let first_party = req.session.userid;
+  let second_party = req.query.second_party;
+  
+  var query = `select * from user where id = '${second_party}';`
+  var query1 = `SELECT * FROM brokerchat WHERE first_party IN ('${first_party}', '${second_party}') and second_party IN ('${first_party}' , '${second_party}');`
+  var query2 = `SELECT distinct(s.first_party) , 
+  (select u.fname from user u where u.id = s.first_party) as userfirstname,
+  (select u.lname from user u where u.id = s.first_party) as userlastname
+  FROM brokerchat s where s.second_party = '${req.session.userid}';`
+  var query3 = `select * from brokerchat where id = '${req.session.userid}';`
+
+
+  pool.query(query+query1+query2+query3,(err,result)=>{
+    if(err) throw err;
+    // else res.json(result)
+    else res.render('brokeractivechat',{result,first_party,second_party})
+
   })
   // 
 })
@@ -450,6 +537,45 @@ router.post('/brokerchat/submit',upload.array('image',20),(req,res)=>{
 })
 
 
+
+router.post('/brokeractivechat/submit',upload.array('image',20),(req,res)=>{
+  // res.json({body:req.body,file:req.files})
+
+  let body = req.body;
+
+  if(req.body.message){
+     pool.query(`insert into brokerchat set ?`,body,(err,result)=>{
+      if(err) throw err;
+      else {
+        if(req.files){
+        for(i=0;i<req.files.length;i++){
+          pool.query(`insert into brokerchat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+            if(err) throw err;
+            else console.log('done');
+          })
+        }
+        res.redirect(`/brokeractivechat?second_party=${req.body.second_party}`)
+        }
+        else{
+          res.redirect(`/brokeractivechat?second_party=${req.body.second_party}`)
+        }
+      }
+     })
+  }
+  else{
+    for(i=0;i<req.files.length;i++){
+      pool.query(`insert into brokerchat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+        if(err) throw err;
+        else console.log('done');
+      })
+    }
+    res.redirect(`/brokeractivechat?second_party=${req.body.second_party}`)
+    
+  }
+
+})
+
+
 router.post('/studentbuddychat/submit',upload.array('image',20),(req,res)=>{
   // res.json({body:req.body,file:req.files})
 
@@ -482,6 +608,45 @@ router.post('/studentbuddychat/submit',upload.array('image',20),(req,res)=>{
       })
     }
     res.redirect(`/studentbuddychat?first_party=${req.body.first_party}&second_party=${req.body.second_party}`)
+    
+  }
+
+})
+
+
+
+router.post('/studentbuddyactivechat/submit',upload.array('image',20),(req,res)=>{
+  // res.json({body:req.body,file:req.files})
+
+  let body = req.body;
+
+  if(req.body.message){
+     pool.query(`insert into studentbuddychat set ?`,body,(err,result)=>{
+      if(err) throw err;
+      else {
+        if(req.files){
+        for(i=0;i<req.files.length;i++){
+          pool.query(`insert into studentbuddychat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+            if(err) throw err;
+            else console.log('done');
+          })
+        }
+        res.redirect(`/studentbuddyactivechat?second_party=${req.body.second_party}`)
+        }
+        else{
+          res.redirect(`/studentbuddyactivechat?second_party=${req.body.second_party}`)
+        }
+      }
+     })
+  }
+  else{
+    for(i=0;i<req.files.length;i++){
+      pool.query(`insert into studentbuddychat(first_party,second_party,message) values('${req.body.first_party}','${req.body.second_party}', '${req.files[i].filename}')`,(err,result)=>{
+        if(err) throw err;
+        else console.log('done');
+      })
+    }
+    res.redirect(`/studentbuddyactivechat?second_party=${req.body.second_party}`)
     
   }
 

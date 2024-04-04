@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-  <link href="/project/static/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <title>Broker</title>
-  <link rel="stylesheet" href="/broker-final/brokerstyles.css">
+  <link rel="stylesheet" href="brokerstyles.css">
 </head>
 <body>
   <div class="navbar">
-      <img src="/project/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
+      <img src="/static/images/LOGO.png" alt="Logo" class="logo" style="width:200px;height: 100px;"> 
   </div>
   <section class="green-section">
     <h1>Welcome Broker</h1>
     <div class="square">
-      <a href="/home/uploadproperty">
-        <img src="/broker-final/uploadproperty.png" alt="Square 1">
+      <a href="property_details.html">
+        <img src="uploadproperty.png" alt="Square 1">
       </a>
       <div class="square-text">
         <p class="heading">Property Details</p>
@@ -24,8 +24,8 @@
       </div>
     </div>
     <div class="square">
-        <a href="/propertylist">
-          <img src="/broker-final/propertylist.png" alt="Square 4">
+        <a href="propertylist.html">
+          <img src="propertylist.png" alt="Square 4">
         </a>
         <div class="square-text">
           <p class="heading">View your property list</p>
@@ -33,8 +33,8 @@
         </div>
       </div>
     <div class="square">
-      <a href="/profile">
-        <img src="/broker-final/profiledetails.png" alt="Square 4">
+      <a href="update_profile.html">
+        <img src="profiledetails.png" alt="Square 4">
       </a>
       <div class="square-text">
         <p class="heading">Update profile</p>
@@ -42,16 +42,16 @@
       </div>
     </div>
     <div class="square">
-      <a href="/brokeractivechat">
-        <img src="/active-chat-zip/active-chat/activechat.png" alt="Square 4">
+      <a href="activechat.html">
+        <img src="activechat.png" alt="Square 4">
       </a>
       <div class="square-text">
-        <p class="heading">View active requests</p>
-        <p>View your properties here, and make changes to it.</p>
+        <p class="heading">Active Chat</p>
+        <p>Click here to view your property requests.</p>
       </div>
     </div>
   </section>
-  <a href="/logout"> <button class="btn-save">Logout</button></a>
+  <button class="btn-save">Logout</button>
   <script src="/template/sbscript.js"></script>
 </body>
 </html>
